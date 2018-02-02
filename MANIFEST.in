@@ -1,0 +1,4 @@
+include README.md LICENSE docs/Makefile
+recursive-include docs *.rst
+recursive-include docs *.py
+prune docs/_build
