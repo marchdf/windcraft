@@ -7,6 +7,8 @@
 #
 # ========================================================================
 import numpy as np
+from scipy import sparse as sps
+import scipy.sparse.linalg as spla
 import matplotlib
 import colorcet as cc
 matplotlib.use("Agg")
@@ -32,7 +34,7 @@ class Solver():
         """
 
         # Geometry
-        npoints = 100
+        npoints = 101
         self.height = 1.0
         self.width = self.height * farm_width / farm_height
         self.n = [int(npoints * self.width), npoints]
@@ -68,14 +70,15 @@ class Solver():
         """Reset the solver."""
         self.u0 = 4.0
         self.v_pert = self.u0 * 0.1
-        self.dpdx = 2.0
+        self.dpdx = -2.0
+        self.pe = 0.0
+        self.pw = self.pe - self.dpdx * self.width
         self.power = 0.0
         self.time = 0.0
         self.step = 0
         self.cfl = 0.5
         self.dt = self.dx / (3 * self.u0) * self.cfl
         self.niter = 50
-
         self.u = self.u0 * np.ones((self.n[0] - 1, self.n[1]))
         self.v = np.zeros((self.n[0], self.n[1] - 1))
         self.ubc = np.zeros((self.n[0] + 1, self.n[1] + 2))
@@ -84,6 +87,20 @@ class Solver():
 
         self.p = np.zeros((self.n[0], self.n[1]))
         self.umag = np.zeros((self.n[0], self.n[1]))
+
+        # Make the matrices for the Poisson equation
+        K1x = derivative_matrix(self.n[0], 2, 2) * self.dy / self.dx
+        K1y = derivative_matrix(self.n[1], 1, 1) * self.dx / self.dy
+        self.laplace_matrix = -(sps.kron(sps.eye(self.n[1]), K1x)
+                                + sps.kron(K1y, sps.eye(self.n[0])))
+        # np.set_printoptions(linewidth=180)
+        # print(self.laplace_matrix.A)
+
+        self.laplace_matrix = self.laplace_matrix.tocsc()
+        ilu = spla.spilu(self.laplace_matrix)
+
+        def Mx(x): return ilu.solve(x)
+        self.M = spla.LinearOperator(self.laplace_matrix.shape, Mx)
 
     def solve(self, steps, turbines):
         """Solve the incompressible Euler equations.
@@ -111,8 +128,7 @@ class Solver():
             # Turbines
             power = self.turbine_update(turbines)
 
-            # Pressure gradient, power output, increments
-            self.u += self.dt * self.dpdx
+            # Power output and increments
             self.power += self.dt * power
             self.time += self.dt
             self.step += 1
@@ -122,29 +138,41 @@ class Solver():
     def apply_velocity_bc(self):
         """Apply the boundary conditions on velocity.
 
-        The inlet is a constant flow. The top, bottom and outlet are
-        zero gradient.
-
+        The inlet is a constant flow. The top and bottom are periodic
+        and the outlet is zero gradient.
         """
-        # Interior
+        # Fill interior
         self.ubc[1:-1, 1:-1] = self.u
         self.vbc[1:-1, 1:-1] = self.v
 
         # West (inflow)
         self.ubc[0, 1:-1] = self.u0 * np.ones((1, self.n[1]))
-        self.vbc[0, 1:-1] = self.v_pert * np.sin(np.pi * self.time * 10)
+        self.vbc[0, 1:-1] = 2.0 * self.v_pert * \
+            np.sin(np.pi * self.time * 10) - self.v[0, :]
 
         # East (outflow - zero gradient)
         self.ubc[-1, 1:-1] = self.u[-1, :]
         self.vbc[-1, 1:-1] = self.v[-1, :]
 
-        # North (outflow - zero gradient)
-        self.ubc[1:-1, 0] = self.u[:, 0]
-        self.vbc[1:-1, 0] = self.v[:, 0]
+        # North (periodic)
+        self.ubc[1:-1, -1] = self.u[:, 0]
+        self.vbc[1:-1, -1] = self.v[:, 0]
 
-        # South (outflow - zero gradient)
-        self.ubc[1:-1, -1] = self.u[:, -1]
-        self.vbc[1:-1, -1] = self.v[:, -1]
+        # South (periodic)
+        self.ubc[1:-1, 0] = self.u[:, -1]
+        self.vbc[1:-1, 0] = self.v[:, -1]
+
+    def apply_pressure_bc(self):
+        """Apply the boundary conditions on pressures.
+
+        The inlet and outlet are Dirichlet. The top and bottom are
+        zero gradient.
+        """
+        # West (Dirichlet)
+        self.p[0, :] = self.pw
+
+        # East (Dirichlet)
+        self.p[-1, :] = self.pe
 
     def advection(self):
         """Calculate advective term of NS with upwinding."""
@@ -179,17 +207,54 @@ class Solver():
 
     def project_velocity(self):
         """Project the velocity field."""
-        self.u -= np.diff(self.p, axis=0) / self.dx
-        self.v -= np.diff(self.p, axis=1) / self.dy
+        self.u -= np.diff(self.p, axis=0) / self.dx * self.dt
+        self.v -= np.diff(self.p, axis=1) / self.dy * self.dt
 
     def solve_pressure_poisson(self):
         """Solve the Poisson equation for pressure."""
         self.apply_velocity_bc()
-        rhs = np.diff(self.ubc, axis=0)[:, 1:-1] / self.dx \
-            + np.diff(self.vbc, axis=1)[1:-1, :] / self.dy
-        for i in range(self.niter):
-            self.p = 0.25 * (p_iterate(self.p, self.dxmin)
-                             - self.dx * self.dy * rhs)
+        rhs = -(np.diff(self.ubc, axis=0)[:, 1:-1] * self.dy
+                + np.diff(self.vbc, axis=1)[1:-1, :] * self.dx) / self.dt
+
+        # attempt 1
+        rhs[0, :] = (-self.u[0, :] * self.dy / self.dt
+                     - self.pw / self.dx * self.dy)
+        rhs[-1, :] = (self.u[-1, :] * self.dy / self.dt
+                      - self.pe / self.dx * self.dy)
+
+        # # attempt 2
+        # rhs[0, :] -= self.pw / self.dx * self.dy
+        # rhs[-1, :] -= self.pe / self.dx * self.dy
+
+        # # attempt 3
+        # rhs[0, :] += (-self.u[0, :] * self.dy / self.dt
+        #               - self.pw / self.dx * self.dy)
+        # rhs[-1, :] += (self.u[-1, :] * self.dy / self.dt
+        #                - self.pe / self.dx * self.dy)
+
+        # print('====================================================')
+        # np.set_printoptions(linewidth=180)
+        # print(rhs)
+        # print(rhs.flatten(order='F'))
+
+        # direct solve
+        self.p = spla.spsolve(self.laplace_matrix,
+                              rhs.flatten(order='F'))
+
+        # # CG solve
+        # self.p, _ = spla.cg(self.laplace_matrix,
+        #                     rhs.flatten(order='F'),
+        #                     maxiter=10,
+        #                     M=self.M)
+
+        # # GMRES
+        # self.p, _ = spla.gmres(self.laplace_matrix,
+        #                        rhs.flatten(order='F'),
+        #                        x0=self.p.flatten('F'),
+        #                        M=self.M)
+
+        self.p = np.reshape(self.p, (self.n[0], self.n[1]), order='F')
+        # self.apply_pressure_bc()
 
     def turbine_update(self, turbines):
         """Update the turbines and flow field.
@@ -267,3 +332,32 @@ def p_iterate(p, dxinv):
     iterate[0, :] -= p[-1, :]
     iterate[-1, :] -= p[0, :]
     return iterate
+
+
+def derivative_matrix(n, bcl, bcr):
+    """Calculate the matrix approximating :math:`-\\frac{\partial^2}{\partial x^2}`
+
+    The boundary condition should be set as:
+
+    - :math:`1`: homogeneous Neumann
+    - :math:`2`: Dirichlet (:math:`u=0` on boundary)
+    - :math:`3`: Dirichlet midpoint (:math:`u=0` on boundary)
+
+    :param n: matrix dimension
+    :type n: int
+    :param bcl: left boundary condition
+    :type bcl: float
+    :param bcr: right boundary condition
+    :type bcr: float
+    :return: derivative matrix
+    :rtype: array
+    """
+
+    diag = 2 * np.ones(n)
+    diag[0] = bcl
+    diag[-1] = bcr
+
+    return sps.spdiags([- np.ones(n), diag, - np.ones(n)],
+                       [-1, 0, 1],
+                       n,
+                       n)
