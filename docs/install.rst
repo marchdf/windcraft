@@ -1,6 +1,10 @@
 Installation
 ============
 
-The package is available in the Python Package Index::
+The package is available on Github::
 
-    pip install windcraft
+.. code-block:: bash
+
+   $ git clone git@github.com:marchdf/windcraft.git
+   $ cd windcraft
+   $ uv run main.py

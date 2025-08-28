@@ -5,7 +5,8 @@ Launching the game is as easy as executing `windcraft` after installation.
 
 .. code-block:: bash
 
-   $ ./bin/windcraft -h
+   $ cd windcraft
+   $ uv run main.py
    usage: windcraft [-h] [-r RESOLUTION RESOLUTION] [-f]
 
    windcraft
