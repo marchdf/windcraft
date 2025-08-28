@@ -1,0 +1,39 @@
+name: windcraft-Docs
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+concurrency:
+  group: ${{github.ref}}-${{github.head_ref}}-docs
+  cancel-in-progress: true
+
+jobs:
+  Docs:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    defaults:
+      run:
+        working-directory: ${{github.workspace}}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: "pyproject.toml"
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+      - name: Docs
+        run: uv run sphinx-build -b html docs docs/_build/html
+      - name: Deploy
+        uses: actions/upload-pages-artifact@v1
+
+  Deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1

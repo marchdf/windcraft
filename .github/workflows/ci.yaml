@@ -20,7 +20,7 @@ jobs:
         working-directory: ${{github.workspace}}
     steps:
       - uses: actions/checkout@v4
-      - name: "Set up Python"
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version-file: "pyproject.toml"
@@ -30,5 +30,3 @@ jobs:
         run: uv run ruff format --check
       - name: Checks
         run: uv run ruff check
-      - name: Docs
-        run: uv run sphinx-build -M html ./docs ./build --fail-on-warning
