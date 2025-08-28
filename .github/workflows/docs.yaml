@@ -29,11 +29,10 @@ jobs:
       - name: Docs
         run: uv run sphinx-build -b html docs docs/_build/html
       - name: Deploy
-        uses: actions/upload-pages-artifact@v3
-
-  Deploy:
-    needs: Docs
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        if: github.event_name == 'push'
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: ${{runner.workspace}}/docs/_build/html
+          SINGLE_COMMIT: true
