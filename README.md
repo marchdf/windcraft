@@ -1,6 +1,6 @@
 # Wind farm game
 
-[![Build Status](https://travis-ci.org/marchdf/windcraft.svg?branch=master)](https://travis-ci.org/marchdf/windcraft)
+[![Build Status](https://github.com/marchdf/windcraft/workflows/windcraft-CI/badge.svg)](https://github.com/marchdf/windcraft/actions)
 
 [![Documentation Status](https://readthedocs.org/projects/windcraft/badge/?version=latest)](http://windcraft.readthedocs.io/en/latest/?badge=latest)
 
