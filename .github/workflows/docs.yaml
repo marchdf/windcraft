@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
 
   Deploy:
-    needs: build
+    needs: Docs
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
