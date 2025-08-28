@@ -1,5 +1,6 @@
-from solver import *
-from plotcfd import *
+from solver import Solver
+from plotcfd import plotflowfields
+import numpy as np
 
 # main
 n = 40

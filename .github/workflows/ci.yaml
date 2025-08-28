@@ -28,5 +28,7 @@ jobs:
         uses: astral-sh/setup-uv@v6
       - name: Formatting
         run: uv run ruff format --check
+      - name: Checks
+        run: uv run ruff check
       - name: Run tests
         run: uv run pytest tests

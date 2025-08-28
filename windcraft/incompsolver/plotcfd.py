@@ -30,9 +30,6 @@ def plotflowfields(
     x = np.arange(xmn + 0.5 * dx, xmx, dx)
     y = np.arange(ymn + 0.5 * dy, ymx, dy)
 
-    Nx = len(x)
-    Ny = len(y)
-
     X, Y = np.meshgrid(x, y)
 
     velx_cc = np.zeros((ncelly, ncellx))
@@ -50,25 +47,25 @@ def plotflowfields(
     plt.figure(1)
     plt.clf()
     CFplot2 = plt.contourf(X, Y, vely_cc[:][:] * vscale, 30)
-    cbar2 = plt.colorbar(CFplot2)
+    plt.colorbar(CFplot2)
     plt.title("y velocity")
 
     plt.figure(2)
     plt.clf()
     CFplot3 = plt.contourf(X, Y, pres_cc[:][:] * pscale, 30)
     plt.quiver(X, Y, velx_cc[:][:] * vscale, vely_cc[:][:] * vscale)
-    cbar3 = plt.colorbar(CFplot3)
+    plt.colorbar(CFplot3)
     plt.title("pressure")
 
     plt.figure(3)
     plt.clf()
     CFplot1 = plt.contourf(X, Y, velx_cc[:][:] * vscale, 30)
-    cbar1 = plt.colorbar(CFplot1)
+    plt.colorbar(CFplot1)
     plt.title("x velocity")
 
     plt.figure(4)
     plt.clf()
     CFplot2 = plt.contourf(X, Y, div_cc[:][:] * vscale, 30)
-    cbar2 = plt.colorbar(CFplot2)
+    plt.colorbar(CFplot2)
     plt.title("div u")
     plt.show()
