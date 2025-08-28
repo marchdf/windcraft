@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Arcade game to optimize a wind farm"
 authors = [{name = "Marc T. Henry de Frahan", email = "marc.henrydefrahan@nrel.gov"}]
 license-files = ["LICENSE"]
+readme = "README.md"
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Education",
@@ -71,11 +72,5 @@ source-dir = "docs"
 all_files = "1"
 warning-is-error = "1"
 
-[tool.distutils.bdist_wheel]
-universal = 1
-
 [tool.setuptools]
 include-package-data = false
-
-[project.scripts]
-windcraft = "windcraft.main:main"
