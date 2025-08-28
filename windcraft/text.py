@@ -17,7 +17,7 @@ import windcraft.fonts as fonts
 # Class definitions
 #
 # ========================================================================
-class Text():
+class Text:
     """This class displays the turbine text."""
 
     def __init__(self):
@@ -43,10 +43,10 @@ class Text():
         xstart = 0.5 * pygame.display.get_surface().get_width()
         ystart = 0.04 * pygame.display.get_surface().get_height()
 
-        text = self.fonts.types['large'].render(
-            "Build turbines to maximize power!", True, self.colors.black)
-        textpos = text.get_rect(centerx=xstart,
-                                top=ystart)
+        text = self.fonts.types["large"].render(
+            "Build turbines to maximize power!", True, self.colors.black
+        )
+        textpos = text.get_rect(centerx=xstart, top=ystart)
         screen.blit(text, textpos)
 
         # # Counter
@@ -68,39 +68,35 @@ class Text():
         xstart = 0.5 * pygame.display.get_surface().get_width()
         ystart = 0.15 * pygame.display.get_surface().get_height()
         scaling_factor = 100
-        text = self.fonts.types['medium'].render(
+        text = self.fonts.types["medium"].render(
             "Power produced: {0:.2f} kW".format(scaling_factor * power),
             True,
-            self.colors.black)
-        textpos = text.get_rect(centerx=xstart,
-                                top=ystart)
+            self.colors.black,
+        )
+        textpos = text.get_rect(centerx=xstart, top=ystart)
         screen.blit(text, textpos)
 
         # Instructions
         xstart = 0.97 * pygame.display.get_surface().get_width()
         ystart = 0.9 * pygame.display.get_surface().get_height()
 
-        text = self.fonts.types['medium'].render("[t] to toggle",
-                                                 True,
-                                                 self.colors.black)
-        textpos = text.get_rect(right=xstart,
-                                bottom=ystart)
+        text = self.fonts.types["medium"].render(
+            "[t] to toggle", True, self.colors.black
+        )
+        textpos = text.get_rect(right=xstart, bottom=ystart)
         screen.blit(text, textpos)
-        text = self.fonts.types['medium'].render("[u] to undo  ",
-                                                 True,
-                                                 self.colors.black)
-        textpos = text.get_rect(right=xstart,
-                                bottom=ystart)
+        text = self.fonts.types["medium"].render(
+            "[u] to undo  ", True, self.colors.black
+        )
+        textpos = text.get_rect(right=xstart, bottom=ystart)
         screen.blit(text, [textpos[0], textpos[1] + self.yoffset])
-        text = self.fonts.types['medium'].render("[r] to reset ",
-                                                 True,
-                                                 self.colors.black)
-        textpos = text.get_rect(right=xstart,
-                                bottom=ystart)
+        text = self.fonts.types["medium"].render(
+            "[r] to reset ", True, self.colors.black
+        )
+        textpos = text.get_rect(right=xstart, bottom=ystart)
         screen.blit(text, [textpos[0], textpos[1] + 2 * self.yoffset])
-        text = self.fonts.types['medium'].render("[q] to quit  ",
-                                                 True,
-                                                 self.colors.black)
-        textpos = text.get_rect(right=xstart,
-                                bottom=ystart)
+        text = self.fonts.types["medium"].render(
+            "[q] to quit  ", True, self.colors.black
+        )
+        textpos = text.get_rect(right=xstart, bottom=ystart)
         screen.blit(text, [textpos[0], textpos[1] + 3 * self.yoffset])

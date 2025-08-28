@@ -1,9 +1,0 @@
-colorcet
-matplotlib
-nose
-numpy
-pbr
-pygame
-sphinx
-sphinx_rtd_theme
-unittest2

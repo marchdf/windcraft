@@ -1,0 +1,83 @@
+[project]
+name = "windcraft"
+version = "0.1.0"
+description = "Arcade game to optimize a wind farm"
+description-file = "README.md"
+authors = [{name = "Marc T. Henry de Frahan", email = "marc.henrydefrahan@nrel.gov"}]
+license = {text = "Apache 2.0"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 2",
+    "Programming Language :: Python :: 2.7",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.4",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6",
+    "Topic :: Games/Entertainment :: Arcade",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+keywords = [
+    "arcade",
+    "game",
+    "turbine",
+    "computational",
+    "fluid",
+    "dynamics",
+]
+dependencies = [
+    "colorcet",
+    "matplotlib",
+    "nose",
+    "numpy",
+    "pbr>=1.9",
+    "pygame",
+    "sphinx",
+    "sphinx-rtd-theme",
+    "unittest2",
+]
+requires-python = ">=3.10"
+
+[tool.uv]
+package = false
+
+[build-system]
+requires = ["setuptools>=61.2"]
+build-backend = "setuptools.build_meta"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.12.11",
+]
+
+[project.urls]
+Homepage = "https://github.com/marchdf/windcraft"
+"Bug Reports" = "https://github.com/marchdf/windcraft/issues"
+Github = "https://github.com/marchdf/windcraft"
+Documentation = "https://windcraft.readthedocs.io/en/latest/"
+
+[tool.files]
+packages = """
+windcraft"""
+
+[tool.entry_points]
+console_scripts = """
+windcraft = windcraft.main:main"""
+
+[tool.build_sphinx]
+builder = "html"
+source-dir = "docs"
+all_files = "1"
+warning-is-error = "1"
+
+[tool.distutils.bdist_wheel]
+universal = 1
+
+[tool.setuptools]
+include-package-data = false
+
+[project.scripts]
+windcraft = "windcraft:main.py"

@@ -21,7 +21,7 @@ class Arrow(pygame.sprite.Sprite):
     """This class displays the wind direction."""
 
     def __init__(self):
-        """ Constructor for Arrow."""
+        """Constructor for Arrow."""
         # Call the parent's constructor
         super().__init__()
         self.colors = colors.Colors()
@@ -36,9 +36,8 @@ class Arrow(pygame.sprite.Sprite):
         :param screen: pygame screen
         :type screen: screen
         """
-        text = self.fonts.types['large'].render("Wind", True, self.colors.red)
-        textpos = text.get_rect(centerx=self.xstart,
-                                centery=self.ystart)
+        text = self.fonts.types["large"].render("Wind", True, self.colors.red)
+        textpos = text.get_rect(centerx=self.xstart, centery=self.ystart)
         screen.blit(text, textpos)
 
         centerline = self.ystart + self.block_size * 4

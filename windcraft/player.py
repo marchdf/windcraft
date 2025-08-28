@@ -21,19 +21,19 @@ class Player(pygame.sprite.Sprite):
     """This class represents the cursor."""
 
     def __init__(self):
-        """ Constructor for Player."""
+        """Constructor for Player."""
         # Call the parent's constructor
         super().__init__()
 
         self.colors = colors.Colors()
         self.width = 1
         self.height = 1
-        self.turbine_path = os.path.join(os.path.dirname(__file__),
-                                         'art',
-                                         "turbine_24x24_00.png")
-        self.invalid_path = os.path.join(os.path.dirname(__file__),
-                                         'art',
-                                         "invalid_turbine_24x24_00.png")
+        self.turbine_path = os.path.join(
+            os.path.dirname(__file__), "art", "turbine_24x24_00.png"
+        )
+        self.invalid_path = os.path.join(
+            os.path.dirname(__file__), "art", "invalid_turbine_24x24_00.png"
+        )
         self.image = pygame.Surface([self.width, self.height])
         self.rect = self.image.get_rect()
 
@@ -53,11 +53,12 @@ class Player(pygame.sprite.Sprite):
         self.margin = self.size * 0.2
         self.turbine_image = pygame.image.load(self.turbine_path).convert()
         self.turbine_image = pygame.transform.scale(
-            self.turbine_image, (self.size, self.size))
-        self.invalid_turbine_image = pygame.image.load(
-            self.invalid_path).convert()
+            self.turbine_image, (self.size, self.size)
+        )
+        self.invalid_turbine_image = pygame.image.load(self.invalid_path).convert()
         self.invalid_turbine_image = pygame.transform.scale(
-            self.invalid_turbine_image, (self.size, self.size))
+            self.invalid_turbine_image, (self.size, self.size)
+        )
         self.turbine_image.set_colorkey(self.colors.black)
         self.rect = self.image.get_rect()
 
@@ -90,9 +91,9 @@ class Player(pygame.sprite.Sprite):
             self.rect.centerx = pos[0]
             self.rect.centery = pos[1]
             for turbine in turbines:
-                if self.rect.colliderect(turbine.rect.inflate(
-                        turbine.margin,
-                        turbine.margin)):
+                if self.rect.colliderect(
+                    turbine.rect.inflate(turbine.margin, turbine.margin)
+                ):
                     self.image = self.invalid_turbine_image
                     break
 

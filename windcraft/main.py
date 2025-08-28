@@ -25,19 +25,23 @@ import windcraft as wc
 #
 # ========================================================================
 def main():
-    parser = argparse.ArgumentParser(description='windcraft')
-    parser.add_argument('-r',
-                        '--resolution',
-                        dest='resolution',
-                        help='Screen resolution (width x height)',
-                        type=int,
-                        nargs=2,
-                        default=[800, 600])
-    parser.add_argument('-f',
-                        '--fullscreeen',
-                        dest='fullscreen',
-                        help='Launch in fullscreen mode',
-                        action='store_true')
+    parser = argparse.ArgumentParser(description="windcraft")
+    parser.add_argument(
+        "-r",
+        "--resolution",
+        dest="resolution",
+        help="Screen resolution (width x height)",
+        type=int,
+        nargs=2,
+        default=[800, 600],
+    )
+    parser.add_argument(
+        "-f",
+        "--fullscreeen",
+        dest="fullscreen",
+        help="Launch in fullscreen mode",
+        action="store_true",
+    )
     args = parser.parse_args()
 
     # Call this function so the Pygame library can initialize itself
@@ -49,11 +53,10 @@ def main():
     if args.fullscreen:
         screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
     else:
-        screen = pygame.display.set_mode([args.resolution[0],
-                                          args.resolution[1]])
+        screen = pygame.display.set_mode([args.resolution[0], args.resolution[1]])
 
     # Set the title of the window
-    pygame.display.set_caption('windcraft')
+    pygame.display.set_caption("windcraft")
 
     # Enable this to make the mouse disappear when over our window
     pygame.mouse.set_visible(1)
@@ -77,8 +80,8 @@ def main():
     # Solver
     solver = wc.Solver(wind_farm.width, wind_farm.height)
     solver_steps = int(0.12 / (solver.dt * fps))
-    if(solver_steps <= 0):
-        solver_steps=30
+    if solver_steps <= 0:
+        solver_steps = 30
 
     # Player
     player = wc.Player()
@@ -108,7 +111,6 @@ def main():
     done = False
     count = 0
     while not done:
-
         clock.tick(fps)
 
         # Clear the screen
@@ -119,7 +121,7 @@ def main():
             if event.type == pygame.QUIT:
                 done = True
             elif event.type == pygame.MOUSEBUTTONDOWN:
-                if (len(turbines) < max_turbines):
+                if len(turbines) < max_turbines:
                     turbine = wc.Turbine(wind_farm)
                     pos = pygame.mouse.get_pos()
                     success = turbine.place_turbine(pos, turbines, wind_farm)
@@ -139,7 +141,7 @@ def main():
                         turbine_list[-1].kill()
                         turbine_list = turbine_list[:-1]
                 elif event.key == pygame.K_t:
-                    print('not implemented yet')
+                    print("not implemented yet")
 
         # Solve flow field and draw
         solver.solve(solver_steps, turbines)

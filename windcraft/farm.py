@@ -58,9 +58,7 @@ class Farm(pygame.sprite.Sprite):
         :param canvas: raw canvas of RGB values
         :type canvas: list
         """
-        self.image = pygame.image.fromstring(canvas,
-                                             (self.width, self.height),
-                                             "RGB")
+        self.image = pygame.image.fromstring(canvas, (self.width, self.height), "ARGB")
 
     def display(self, screen):
         """Display the farm boundaries.
@@ -70,30 +68,46 @@ class Farm(pygame.sprite.Sprite):
         """
 
         # Top line
-        pygame.draw.rect(screen,
-                         self.colors.nrel,
-                         [self.rect.x,
-                          self.rect.y - self.half_line_width,
-                          self.rect.width,
-                          self.line_width])
+        pygame.draw.rect(
+            screen,
+            self.colors.nrel,
+            [
+                self.rect.x,
+                self.rect.y - self.half_line_width,
+                self.rect.width,
+                self.line_width,
+            ],
+        )
         # bottom line
-        pygame.draw.rect(screen,
-                         self.colors.nrel,
-                         [self.rect.x - self.half_line_width,
-                          self.rect.bottom - self.half_line_width,
-                          self.rect.width + self.half_line_width,
-                          self.line_width])
+        pygame.draw.rect(
+            screen,
+            self.colors.nrel,
+            [
+                self.rect.x - self.half_line_width,
+                self.rect.bottom - self.half_line_width,
+                self.rect.width + self.half_line_width,
+                self.line_width,
+            ],
+        )
         # left line
-        pygame.draw.rect(screen,
-                         self.colors.nrel,
-                         [self.rect.x - self.half_line_width,
-                          self.rect.y - self.half_line_width,
-                          self.line_width,
-                          self.rect.height + self.line_width])
+        pygame.draw.rect(
+            screen,
+            self.colors.nrel,
+            [
+                self.rect.x - self.half_line_width,
+                self.rect.y - self.half_line_width,
+                self.line_width,
+                self.rect.height + self.line_width,
+            ],
+        )
         # right line
-        pygame.draw.rect(screen,
-                         self.colors.nrel,
-                         [self.rect.right - self.half_line_width,
-                          self.rect.y - self.half_line_width,
-                          self.line_width,
-                          self.rect.height + self.line_width])
+        pygame.draw.rect(
+            screen,
+            self.colors.nrel,
+            [
+                self.rect.right - self.half_line_width,
+                self.rect.y - self.half_line_width,
+                self.line_width,
+                self.rect.height + self.line_width,
+            ],
+        )

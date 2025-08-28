@@ -6,15 +6,17 @@ except NameError:
     __WINDCRAFT_SETUP__ = False
 
 if not __WINDCRAFT_SETUP__:
-    __all__ = ["Arrow",
-               "Colors",
-               "Text",
-               "Farm",
-               "Fonts",
-               "Logo",
-               "Player",
-               "Solver",
-               "Turbine"]
+    __all__ = [
+        "Arrow",
+        "Colors",
+        "Text",
+        "Farm",
+        "Fonts",
+        "Logo",
+        "Player",
+        "Solver",
+        "Turbine",
+    ]
     from .arrow import Arrow
     from .colors import Colors
     from .text import Text
