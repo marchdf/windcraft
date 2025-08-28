@@ -2,14 +2,12 @@
 name = "windcraft"
 version = "0.1.0"
 description = "Arcade game to optimize a wind farm"
-description-file = "README.md"
 authors = [{name = "Marc T. Henry de Frahan", email = "marc.henrydefrahan@nrel.gov"}]
-license = {text = "Apache 2.0"}
+license-files = ["LICENSE"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Education",
     "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 2",
     "Programming Language :: Python :: 2.7",
@@ -45,7 +43,7 @@ requires-python = ">=3.10"
 package = false
 
 [build-system]
-requires = ["setuptools>=61.2"]
+requires = ["setuptools>=61.2", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [dependency-groups]
@@ -80,4 +78,4 @@ universal = 1
 include-package-data = false
 
 [project.scripts]
-windcraft = "windcraft:main.py"
+windcraft = "windcraft.main:main"
