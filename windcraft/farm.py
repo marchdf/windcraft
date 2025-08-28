@@ -58,7 +58,7 @@ class Farm(pygame.sprite.Sprite):
         :param canvas: raw canvas of RGB values
         :type canvas: list
         """
-        self.image = pygame.image.fromstring(canvas, (self.width, self.height), "ARGB")
+        self.image =   pygame.image.fromstring(canvas, (self.width, self.height), "ARGB")
 
     def display(self, screen):
         """Display the farm boundaries.
