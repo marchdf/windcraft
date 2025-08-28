@@ -2,7 +2,7 @@ Source documentation
 ====================
 
 windcraft\.arrow module
-----------------------
+-----------------------
 
 .. automodule:: windcraft.arrow
     :members:
@@ -10,7 +10,7 @@ windcraft\.arrow module
     :show-inheritance:
 
 windcraft\.colors module
------------------------
+------------------------
 
 .. automodule:: windcraft.colors
     :members:
@@ -18,7 +18,7 @@ windcraft\.colors module
     :show-inheritance:
 
 windcraft\.farm module
----------------------
+----------------------
 
 .. automodule:: windcraft.farm
     :members:
@@ -26,7 +26,7 @@ windcraft\.farm module
     :show-inheritance:
 
 windcraft\.fonts module
-----------------------
+-----------------------
 
 .. automodule:: windcraft.fonts
     :members:
@@ -34,7 +34,7 @@ windcraft\.fonts module
     :show-inheritance:
 
 windcraft\.logo module
----------------------
+----------------------
 
 .. automodule:: windcraft.logo
     :members:
@@ -42,7 +42,7 @@ windcraft\.logo module
     :show-inheritance:
 
 windcraft\.player module
------------------------
+------------------------
 
 .. automodule:: windcraft.player
     :members:
@@ -50,7 +50,7 @@ windcraft\.player module
     :show-inheritance:
 
 windcraft\.text module
-------------------------
+----------------------
 
 .. automodule:: windcraft.text
     :members:
@@ -58,7 +58,7 @@ windcraft\.text module
     :show-inheritance:
 
 windcraft\.turbine module
-------------------------
+-------------------------
 
 .. automodule:: windcraft.turbine
     :members:
