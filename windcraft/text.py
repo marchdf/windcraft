@@ -92,7 +92,8 @@ class Text:
         screen.blit(text, textpos)
 
         num_bulbs = 10
-        percent = 100 * power / ideal_power
+        scale_factor = 100
+        percent = 100 * power * scale_factor / ideal_power
         bulb_spacing = self.bulb_size
         xstart = 0.3 * pygame.display.get_surface().get_width()
         for i in range(num_bulbs):

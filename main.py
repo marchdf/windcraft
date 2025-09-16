@@ -52,6 +52,14 @@ def main():
         type=int,
         default=20,
     )
+    parser.add_argument(
+        "-p",
+        "--ideal_power",
+        dest="ideal_power",
+        help="Ideal generated power target in kW",
+        type=int,
+        default=350,
+    )
     args = parser.parse_args()
 
     # Call this function so the Pygame library can initialize itself
@@ -84,7 +92,6 @@ def main():
     # Turbines
     turbines = pygame.sprite.Group()
     max_turbines = 100
-    ideal_power = 3.50  # 350 kW
     rotation_rate = fps / 6
     turbine_list = []
 
@@ -168,7 +175,9 @@ def main():
                 turbine.rotate()
 
         # Draw text
-        text.display(screen, len(turbines), max_turbines, solver.power, ideal_power)
+        text.display(
+            screen, len(turbines), max_turbines, solver.power, args.ideal_power
+        )
 
         # Draw arrow
         arrow.display(screen)
