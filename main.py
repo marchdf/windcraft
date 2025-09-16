@@ -114,7 +114,7 @@ def main():
     arrow = wc.Arrow()
 
     # Text
-    text = wc.Text()
+    text = wc.Text(wind_farm.bulb_size)
 
     # Colors
     colors = wc.Colors()

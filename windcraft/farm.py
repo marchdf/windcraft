@@ -46,6 +46,9 @@ class Farm(pygame.sprite.Sprite):
         self.turbine_ratio = 0.2
         self.turbine_size = int(self.rect.height * self.turbine_ratio)
 
+        self.bulb_ratio = 0.1
+        self.bulb_size = int(self.rect.height * self.bulb_ratio)
+
         # Inner farm where turbines are allowed
         self.inner_rect = self.rect.copy()
         self.inner_rect.width = self.rect.width - self.turbine_size

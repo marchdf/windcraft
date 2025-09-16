@@ -23,7 +23,7 @@ import windcraft.fonts as fonts
 class Text:
     """This class displays the turbine text."""
 
-    def __init__(self):
+    def __init__(self, bulb_size):
         """Constructor for Text."""
         self.colors = colors.Colors()
         self.fonts = fonts.Fonts()
@@ -35,7 +35,7 @@ class Text:
         bulb_files = [
             os.path.join(art_dir, fname) for fname in ["bulbon.png", "bulboff.png"]
         ]
-        self.bulb_size = 30
+        self.bulb_size = bulb_size
         self.bulb_images = [pygame.image.load(fname) for fname in bulb_files]
         self.bulb_images = [
             pygame.transform.scale(image, (self.bulb_size, self.bulb_size))
@@ -94,7 +94,6 @@ class Text:
         num_bulbs = 10
         scale_factor = 100
         percent = 100 * power * scale_factor / ideal_power
-        bulb_spacing = self.bulb_size
         xstart = 0.3 * pygame.display.get_surface().get_width()
         for i in range(num_bulbs):
             if percent >= (i + 1) * 10:
@@ -103,7 +102,7 @@ class Text:
                 bulb_img = self.bulb_images[1]
             screen.blit(
                 bulb_img,
-                (xstart + i * bulb_spacing, textpos.top + bulb_spacing - 8),
+                (xstart + i * self.bulb_size, textpos.top + self.bulb_size * 0.6),
             )
 
         # Instructions
