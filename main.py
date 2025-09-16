@@ -114,7 +114,10 @@ def main():
     arrow = wc.Arrow()
 
     # Text
-    text = wc.Text(wind_farm.bulb_size)
+    text = wc.Text()
+
+    # Bulbs
+    bulbs = wc.Bulbs(wind_farm.bulb_size)
 
     # Colors
     colors = wc.Colors()
@@ -175,9 +178,10 @@ def main():
                 turbine.rotate()
 
         # Draw text
-        text.display(
-            screen, len(turbines), max_turbines, solver.power, args.ideal_power
-        )
+        text.display(screen, len(turbines), max_turbines)
+
+        # Draw bulbs
+        bulbs.display(screen, solver.power, args.ideal_power)
 
         # Draw arrow
         arrow.display(screen)

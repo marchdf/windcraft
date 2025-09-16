@@ -8,8 +8,10 @@ __all__ = [
     "Player",
     "Solver",
     "Turbine",
+    "Bulbs",
 ]
 from .arrow import Arrow
+from .bulbs import Bulbs
 from .colors import Colors
 from .farm import Farm
 from .fonts import Fonts
