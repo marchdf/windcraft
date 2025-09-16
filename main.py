@@ -84,6 +84,7 @@ def main():
     # Turbines
     turbines = pygame.sprite.Group()
     max_turbines = 100
+    ideal_power = 3.50  # 350 kW
     rotation_rate = fps / 6
     turbine_list = []
 
@@ -167,7 +168,7 @@ def main():
                 turbine.rotate()
 
         # Draw text
-        text.display(screen, len(turbines), max_turbines, solver.power)
+        text.display(screen, len(turbines), max_turbines, solver.power, ideal_power)
 
         # Draw arrow
         arrow.display(screen)

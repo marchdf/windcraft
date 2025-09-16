@@ -7,6 +7,8 @@
 # Imports
 #
 # ========================================================================
+import os
+
 import pygame
 
 import windcraft.colors as colors
@@ -26,8 +28,21 @@ class Text:
         self.colors = colors.Colors()
         self.fonts = fonts.Fonts()
         self.yoffset = 0.03 * pygame.display.get_surface().get_height()
+        art_dir = os.path.join(
+            os.path.dirname(__file__),
+            "art",
+        )
+        bulb_files = [
+            os.path.join(art_dir, fname) for fname in ["bulbon.png", "bulboff.png"]
+        ]
+        self.bulb_size = 32
+        self.bulb_images = [pygame.image.load(fname) for fname in bulb_files]
+        self.bulb_images = [
+            pygame.transform.scale(image, (self.bulb_size, self.bulb_size))
+            for image in self.bulb_images
+        ]
 
-    def display(self, screen, num_turbines, max_turbines, power):
+    def display(self, screen, num_turbines, max_turbines, power, ideal_power):
         """Display the text on the screen.
 
         :param screen: pygame screen
@@ -66,16 +81,35 @@ class Text:
         #     screen.blit(text, [textpos[0], textpos[1] + self.yoffset])
 
         # Power
-        xstart = 0.5 * pygame.display.get_surface().get_width()
-        ystart = 0.15 * pygame.display.get_surface().get_height()
-        scaling_factor = 100
+        xstart = 0.41 * pygame.display.get_surface().get_width()
+        ystart = 0.14 * pygame.display.get_surface().get_height()
         text = self.fonts.types["medium"].render(
-            f"Power produced: {scaling_factor * power:.2f} kW",
+            "Power produced : ",
             True,
             self.colors.black,
         )
         textpos = text.get_rect(centerx=xstart, top=ystart)
         screen.blit(text, textpos)
+
+        num_bulbs = 5
+        percent = 100 * power / ideal_power
+        bulb_thresholds = [
+            30,
+            50,
+            60,
+            85,
+            95,
+        ]  # percent thresholds for bulbs to light up
+        bulb_spacing = self.bulb_size
+        for i in range(num_bulbs):
+            if percent >= bulb_thresholds[i]:
+                bulb_img = self.bulb_images[0]
+            else:
+                bulb_img = self.bulb_images[1]
+            screen.blit(
+                bulb_img,
+                (textpos.right + i * bulb_spacing, textpos.top - bulb_spacing / 2 + 4),
+            )
 
         # Instructions
         xstart = 0.97 * pygame.display.get_surface().get_width()
