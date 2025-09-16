@@ -94,7 +94,10 @@ class Text:
         num_bulbs = 10
         scale_factor = 100
         percent = 100 * power * scale_factor / ideal_power
-        xstart = 0.3 * pygame.display.get_surface().get_width()
+        xstart = (
+            0.5 * pygame.display.get_surface().get_width()
+            - num_bulbs // 2 * self.bulb_size
+        )
         for i in range(num_bulbs):
             if percent >= (i + 1) * 10:
                 bulb_img = self.bulb_images[0]
