@@ -1,0 +1,810 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Source documentation &mdash; windcraft  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contribute" href="contribute.html" />
+    <link rel="prev" title="Numerical methods" href="methods.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            windcraft
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user.html">Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="methods.html">Numerical methods</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Source documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-windcraft.arrow">windcraft.arrow module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.arrow.Arrow"><code class="docutils literal notranslate"><span class="pre">Arrow</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.arrow.Arrow.display"><code class="docutils literal notranslate"><span class="pre">Arrow.display()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-windcraft.colors">windcraft.colors module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.colors.Colors"><code class="docutils literal notranslate"><span class="pre">Colors</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-windcraft.farm">windcraft.farm module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.farm.Farm"><code class="docutils literal notranslate"><span class="pre">Farm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.farm.Farm.display"><code class="docutils literal notranslate"><span class="pre">Farm.display()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.farm.Farm.update"><code class="docutils literal notranslate"><span class="pre">Farm.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-windcraft.fonts">windcraft.fonts module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.fonts.Fonts"><code class="docutils literal notranslate"><span class="pre">Fonts</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-windcraft.logo">windcraft.logo module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.logo.Logo"><code class="docutils literal notranslate"><span class="pre">Logo</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-windcraft.player">windcraft.player module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.player.Player"><code class="docutils literal notranslate"><span class="pre">Player</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.player.Player.set_turbine"><code class="docutils literal notranslate"><span class="pre">Player.set_turbine()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.player.Player.update"><code class="docutils literal notranslate"><span class="pre">Player.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-windcraft.text">windcraft.text module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.text.Text"><code class="docutils literal notranslate"><span class="pre">Text</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.text.Text.display"><code class="docutils literal notranslate"><span class="pre">Text.display()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-windcraft.turbine">windcraft.turbine module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.turbine.Turbine"><code class="docutils literal notranslate"><span class="pre">Turbine</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.turbine.Turbine.place_turbine"><code class="docutils literal notranslate"><span class="pre">Turbine.place_turbine()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.turbine.Turbine.rotate"><code class="docutils literal notranslate"><span class="pre">Turbine.rotate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.turbine.Turbine.update"><code class="docutils literal notranslate"><span class="pre">Turbine.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-windcraft.solver">windcraft.solver module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.solver.Solver"><code class="docutils literal notranslate"><span class="pre">Solver</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.solver.Solver.advectdiffuse"><code class="docutils literal notranslate"><span class="pre">Solver.advectdiffuse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.solver.Solver.apply_pres_bc"><code class="docutils literal notranslate"><span class="pre">Solver.apply_pres_bc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.solver.Solver.apply_velocity_bc"><code class="docutils literal notranslate"><span class="pre">Solver.apply_velocity_bc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.solver.Solver.computediv"><code class="docutils literal notranslate"><span class="pre">Solver.computediv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.solver.Solver.draw_field"><code class="docutils literal notranslate"><span class="pre">Solver.draw_field()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.solver.Solver.fillpresmat"><code class="docutils literal notranslate"><span class="pre">Solver.fillpresmat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.solver.Solver.project_velocity"><code class="docutils literal notranslate"><span class="pre">Solver.project_velocity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.solver.Solver.reset"><code class="docutils literal notranslate"><span class="pre">Solver.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.solver.Solver.solve"><code class="docutils literal notranslate"><span class="pre">Solver.solve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.solver.Solver.solve_pressure_poisson"><code class="docutils literal notranslate"><span class="pre">Solver.solve_pressure_poisson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.solver.Solver.turbine_update"><code class="docutils literal notranslate"><span class="pre">Solver.turbine_update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.solver.p_iterate"><code class="docutils literal notranslate"><span class="pre">p_iterate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.solver.xavg"><code class="docutils literal notranslate"><span class="pre">xavg()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.solver.yavg"><code class="docutils literal notranslate"><span class="pre">yavg()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-windcraft">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.Arrow"><code class="docutils literal notranslate"><span class="pre">Arrow</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.Arrow.display"><code class="docutils literal notranslate"><span class="pre">Arrow.display()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.Bulbs"><code class="docutils literal notranslate"><span class="pre">Bulbs</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.Bulbs.display"><code class="docutils literal notranslate"><span class="pre">Bulbs.display()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.Colors"><code class="docutils literal notranslate"><span class="pre">Colors</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.Farm"><code class="docutils literal notranslate"><span class="pre">Farm</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.Farm.display"><code class="docutils literal notranslate"><span class="pre">Farm.display()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.Farm.update"><code class="docutils literal notranslate"><span class="pre">Farm.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.Fonts"><code class="docutils literal notranslate"><span class="pre">Fonts</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.Logo"><code class="docutils literal notranslate"><span class="pre">Logo</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.Player"><code class="docutils literal notranslate"><span class="pre">Player</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.Player.set_turbine"><code class="docutils literal notranslate"><span class="pre">Player.set_turbine()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.Player.update"><code class="docutils literal notranslate"><span class="pre">Player.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.Solver"><code class="docutils literal notranslate"><span class="pre">Solver</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.Solver.advectdiffuse"><code class="docutils literal notranslate"><span class="pre">Solver.advectdiffuse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.Solver.apply_pres_bc"><code class="docutils literal notranslate"><span class="pre">Solver.apply_pres_bc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.Solver.apply_velocity_bc"><code class="docutils literal notranslate"><span class="pre">Solver.apply_velocity_bc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.Solver.computediv"><code class="docutils literal notranslate"><span class="pre">Solver.computediv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.Solver.draw_field"><code class="docutils literal notranslate"><span class="pre">Solver.draw_field()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.Solver.fillpresmat"><code class="docutils literal notranslate"><span class="pre">Solver.fillpresmat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.Solver.project_velocity"><code class="docutils literal notranslate"><span class="pre">Solver.project_velocity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.Solver.reset"><code class="docutils literal notranslate"><span class="pre">Solver.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.Solver.solve"><code class="docutils literal notranslate"><span class="pre">Solver.solve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.Solver.solve_pressure_poisson"><code class="docutils literal notranslate"><span class="pre">Solver.solve_pressure_poisson()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.Solver.turbine_update"><code class="docutils literal notranslate"><span class="pre">Solver.turbine_update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.Text"><code class="docutils literal notranslate"><span class="pre">Text</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.Text.display"><code class="docutils literal notranslate"><span class="pre">Text.display()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#windcraft.Turbine"><code class="docutils literal notranslate"><span class="pre">Turbine</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.Turbine.place_turbine"><code class="docutils literal notranslate"><span class="pre">Turbine.place_turbine()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.Turbine.rotate"><code class="docutils literal notranslate"><span class="pre">Turbine.rotate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windcraft.Turbine.update"><code class="docutils literal notranslate"><span class="pre">Turbine.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credit.html">Credit</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">windcraft</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Source documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/source.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="source-documentation">
+<h1>Source documentation<a class="headerlink" href="#source-documentation" title="Link to this heading"></a></h1>
+<section id="module-windcraft.arrow">
+<span id="windcraft-arrow-module"></span><h2>windcraft.arrow module<a class="headerlink" href="#module-windcraft.arrow" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="windcraft.arrow.Arrow">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">windcraft.arrow.</span></span><span class="sig-name descname"><span class="pre">Arrow</span></span><a class="reference internal" href="_modules/windcraft/arrow.html#Arrow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.arrow.Arrow" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Sprite</span></code></p>
+<p>This class displays the wind direction.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.arrow.Arrow.display">
+<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/arrow.html#Arrow.display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.arrow.Arrow.display" title="Link to this definition"></a></dt>
+<dd><p>Display the arrow on the screen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>screen</strong> (<em>screen</em>) – pygame screen</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-windcraft.colors">
+<span id="windcraft-colors-module"></span><h2>windcraft.colors module<a class="headerlink" href="#module-windcraft.colors" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="windcraft.colors.Colors">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">windcraft.colors.</span></span><span class="sig-name descname"><span class="pre">Colors</span></span><a class="reference internal" href="_modules/windcraft/colors.html#Colors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.colors.Colors" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Defines the colors used in the game.</p>
+</dd></dl>
+
+</section>
+<section id="module-windcraft.farm">
+<span id="windcraft-farm-module"></span><h2>windcraft.farm module<a class="headerlink" href="#module-windcraft.farm" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="windcraft.farm.Farm">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">windcraft.farm.</span></span><span class="sig-name descname"><span class="pre">Farm</span></span><a class="reference internal" href="_modules/windcraft/farm.html#Farm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.farm.Farm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Sprite</span></code></p>
+<p>This represents the wind farm.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.farm.Farm.display">
+<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/farm.html#Farm.display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.farm.Farm.display" title="Link to this definition"></a></dt>
+<dd><p>Display the farm boundaries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>screen</strong> (<em>screen</em>) – pygame screen</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.farm.Farm.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/farm.html#Farm.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.farm.Farm.update" title="Link to this definition"></a></dt>
+<dd><p>Update the display field in the farm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>canvas</strong> (<em>list</em>) – raw canvas of RGB values</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-windcraft.fonts">
+<span id="windcraft-fonts-module"></span><h2>windcraft.fonts module<a class="headerlink" href="#module-windcraft.fonts" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="windcraft.fonts.Fonts">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">windcraft.fonts.</span></span><span class="sig-name descname"><span class="pre">Fonts</span></span><a class="reference internal" href="_modules/windcraft/fonts.html#Fonts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.fonts.Fonts" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Defines the fonts used in the game.</p>
+</dd></dl>
+
+</section>
+<section id="module-windcraft.logo">
+<span id="windcraft-logo-module"></span><h2>windcraft.logo module<a class="headerlink" href="#module-windcraft.logo" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="windcraft.logo.Logo">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">windcraft.logo.</span></span><span class="sig-name descname"><span class="pre">Logo</span></span><a class="reference internal" href="_modules/windcraft/logo.html#Logo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.logo.Logo" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Sprite</span></code></p>
+<p>This class displays the logo.</p>
+</dd></dl>
+
+</section>
+<section id="module-windcraft.player">
+<span id="windcraft-player-module"></span><h2>windcraft.player module<a class="headerlink" href="#module-windcraft.player" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="windcraft.player.Player">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">windcraft.player.</span></span><span class="sig-name descname"><span class="pre">Player</span></span><a class="reference internal" href="_modules/windcraft/player.html#Player"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.player.Player" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Sprite</span></code></p>
+<p>This class represents the cursor.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.player.Player.set_turbine">
+<span class="sig-name descname"><span class="pre">set_turbine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">farm</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/player.html#Player.set_turbine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.player.Player.set_turbine" title="Link to this definition"></a></dt>
+<dd><p>Define the wind turbine graphics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>farm</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Farm</span></code>) – wind farm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.player.Player.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">farm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">turbines</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/player.html#Player.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.player.Player.update" title="Link to this definition"></a></dt>
+<dd><p>Update the player position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>farm</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Farm</span></code>) – wind farm</p></li>
+<li><p><strong>turbines</strong> (<em>list</em>) – turbines in farm</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-windcraft.text">
+<span id="windcraft-text-module"></span><h2>windcraft.text module<a class="headerlink" href="#module-windcraft.text" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="windcraft.text.Text">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">windcraft.text.</span></span><span class="sig-name descname"><span class="pre">Text</span></span><a class="reference internal" href="_modules/windcraft/text.html#Text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.text.Text" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class displays the turbine text.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.text.Text.display">
+<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_turbines</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_turbines</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/text.html#Text.display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.text.Text.display" title="Link to this definition"></a></dt>
+<dd><p>Display the text on the screen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>screen</strong> (<em>screen</em>) – pygame screen</p></li>
+<li><p><strong>num_turbines</strong> (<em>int</em>) – number of turbines in farm</p></li>
+<li><p><strong>max_turbines</strong> (<em>int</em>) – maximum number of turbines in farm</p></li>
+<li><p><strong>power</strong> (<em>float</em>) – power generated by the farm</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-windcraft.turbine">
+<span id="windcraft-turbine-module"></span><h2>windcraft.turbine module<a class="headerlink" href="#module-windcraft.turbine" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="windcraft.turbine.Turbine">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">windcraft.turbine.</span></span><span class="sig-name descname"><span class="pre">Turbine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">farm</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/turbine.html#Turbine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.turbine.Turbine" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Sprite</span></code></p>
+<p>This represents the turbine.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.turbine.Turbine.place_turbine">
+<span class="sig-name descname"><span class="pre">place_turbine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">turbines</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">farm</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/turbine.html#Turbine.place_turbine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.turbine.Turbine.place_turbine" title="Link to this definition"></a></dt>
+<dd><p>Place turbine in the wind farm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pos</strong> (<em>list</em>) – position to place turbine</p></li>
+<li><p><strong>turbines</strong> (<em>list</em>) – current turbines in the farm</p></li>
+<li><p><strong>farm</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Farm</span></code>) – wind farm</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.turbine.Turbine.rotate">
+<span class="sig-name descname"><span class="pre">rotate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/turbine.html#Turbine.rotate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.turbine.Turbine.rotate" title="Link to this definition"></a></dt>
+<dd><p>Pick another image to rotate the turbine</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.turbine.Turbine.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/turbine.html#Turbine.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.turbine.Turbine.update" title="Link to this definition"></a></dt>
+<dd><p>Use local velocity to update the turbine speed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>u</strong> (<em>float</em>) – velocity at the turbine</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-windcraft.solver">
+<span id="windcraft-solver-module"></span><h2>windcraft.solver module<a class="headerlink" href="#module-windcraft.solver" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="windcraft.solver.Solver">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">windcraft.solver.</span></span><span class="sig-name descname"><span class="pre">Solver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">farm_width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">farm_height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npoints</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.solver.Solver" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This represents the solver.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.solver.Solver.advectdiffuse">
+<span class="sig-name descname"><span class="pre">advectdiffuse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.advectdiffuse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.solver.Solver.advectdiffuse" title="Link to this definition"></a></dt>
+<dd><p>Calculate advective term of NS with upwinding.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.solver.Solver.apply_pres_bc">
+<span class="sig-name descname"><span class="pre">apply_pres_bc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.apply_pres_bc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.solver.Solver.apply_pres_bc" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.solver.Solver.apply_velocity_bc">
+<span class="sig-name descname"><span class="pre">apply_velocity_bc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.apply_velocity_bc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.solver.Solver.apply_velocity_bc" title="Link to this definition"></a></dt>
+<dd><p>Apply the boundary conditions on velocity.
+The inlet is a constant flow.
+The top, bottom are zero gradient outflow
+and outlet are zero gradient.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.solver.Solver.computediv">
+<span class="sig-name descname"><span class="pre">computediv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.computediv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.solver.Solver.computediv" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.solver.Solver.draw_field">
+<span class="sig-name descname"><span class="pre">draw_field</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.draw_field"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.solver.Solver.draw_field" title="Link to this definition"></a></dt>
+<dd><p>Make a raw canvas of a field for pygame.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.solver.Solver.fillpresmat">
+<span class="sig-name descname"><span class="pre">fillpresmat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.fillpresmat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.solver.Solver.fillpresmat" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.solver.Solver.project_velocity">
+<span class="sig-name descname"><span class="pre">project_velocity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.project_velocity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.solver.Solver.project_velocity" title="Link to this definition"></a></dt>
+<dd><p>Project the velocity field.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.solver.Solver.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.solver.Solver.reset" title="Link to this definition"></a></dt>
+<dd><p>Reset the solver.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.solver.Solver.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">turbines</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.solve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.solver.Solver.solve" title="Link to this definition"></a></dt>
+<dd><p>Solve the incompressible Euler equations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>steps</strong> (<em>list</em>) – number of time steps to solve</p></li>
+<li><p><strong>turbines</strong> – turbines in domain</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.solver.Solver.solve_pressure_poisson">
+<span class="sig-name descname"><span class="pre">solve_pressure_poisson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.solve_pressure_poisson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.solver.Solver.solve_pressure_poisson" title="Link to this definition"></a></dt>
+<dd><p>Solve the Poisson equation for pressure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.solver.Solver.turbine_update">
+<span class="sig-name descname"><span class="pre">turbine_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">turbines</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.turbine_update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.solver.Solver.turbine_update" title="Link to this definition"></a></dt>
+<dd><p>Update the turbines and flow field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>turbines</strong> (<em>list</em>) – turbines in farm</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="windcraft.solver.p_iterate">
+<span class="sig-prename descclassname"><span class="pre">windcraft.solver.</span></span><span class="sig-name descname"><span class="pre">p_iterate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dxinv</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#p_iterate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.solver.p_iterate" title="Link to this definition"></a></dt>
+<dd><p>Calculate iteration for Poisson solver (with BC).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>p</strong> (<em>array</em>) – pressure</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>pressure iterate</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="windcraft.solver.xavg">
+<span class="sig-prename descclassname"><span class="pre">windcraft.solver.</span></span><span class="sig-name descname"><span class="pre">xavg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#xavg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.solver.xavg" title="Link to this definition"></a></dt>
+<dd><p>Calculate the forward average in x
+:param f: data to average
+:type f: array
+:return: averaged data in y
+:rtype: array</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="windcraft.solver.yavg">
+<span class="sig-prename descclassname"><span class="pre">windcraft.solver.</span></span><span class="sig-name descname"><span class="pre">yavg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#yavg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.solver.yavg" title="Link to this definition"></a></dt>
+<dd><p>Calculate the forward average in y.
+:param f: data to average
+:type f: array
+:return: averaged data in x
+:rtype: array</p>
+</dd></dl>
+
+</section>
+<section id="module-windcraft">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-windcraft" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="windcraft.Arrow">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">windcraft.</span></span><span class="sig-name descname"><span class="pre">Arrow</span></span><a class="reference internal" href="_modules/windcraft/arrow.html#Arrow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Arrow" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Sprite</span></code></p>
+<p>This class displays the wind direction.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.Arrow.display">
+<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/arrow.html#Arrow.display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Arrow.display" title="Link to this definition"></a></dt>
+<dd><p>Display the arrow on the screen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>screen</strong> (<em>screen</em>) – pygame screen</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="windcraft.Bulbs">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">windcraft.</span></span><span class="sig-name descname"><span class="pre">Bulbs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bulb_size</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/bulbs.html#Bulbs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Bulbs" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class displays the turbine text.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.Bulbs.display">
+<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ideal_power</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/bulbs.html#Bulbs.display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Bulbs.display" title="Link to this definition"></a></dt>
+<dd><p>Display the lit/unlit bulbs on the screen.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="windcraft.Colors">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">windcraft.</span></span><span class="sig-name descname"><span class="pre">Colors</span></span><a class="reference internal" href="_modules/windcraft/colors.html#Colors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Colors" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Defines the colors used in the game.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="windcraft.Farm">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">windcraft.</span></span><span class="sig-name descname"><span class="pre">Farm</span></span><a class="reference internal" href="_modules/windcraft/farm.html#Farm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Farm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Sprite</span></code></p>
+<p>This represents the wind farm.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.Farm.display">
+<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/farm.html#Farm.display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Farm.display" title="Link to this definition"></a></dt>
+<dd><p>Display the farm boundaries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>screen</strong> (<em>screen</em>) – pygame screen</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.Farm.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/farm.html#Farm.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Farm.update" title="Link to this definition"></a></dt>
+<dd><p>Update the display field in the farm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>canvas</strong> (<em>list</em>) – raw canvas of RGB values</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="windcraft.Fonts">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">windcraft.</span></span><span class="sig-name descname"><span class="pre">Fonts</span></span><a class="reference internal" href="_modules/windcraft/fonts.html#Fonts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Fonts" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Defines the fonts used in the game.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="windcraft.Logo">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">windcraft.</span></span><span class="sig-name descname"><span class="pre">Logo</span></span><a class="reference internal" href="_modules/windcraft/logo.html#Logo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Logo" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Sprite</span></code></p>
+<p>This class displays the logo.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="windcraft.Player">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">windcraft.</span></span><span class="sig-name descname"><span class="pre">Player</span></span><a class="reference internal" href="_modules/windcraft/player.html#Player"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Player" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Sprite</span></code></p>
+<p>This class represents the cursor.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.Player.set_turbine">
+<span class="sig-name descname"><span class="pre">set_turbine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">farm</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/player.html#Player.set_turbine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Player.set_turbine" title="Link to this definition"></a></dt>
+<dd><p>Define the wind turbine graphics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>farm</strong> (<a class="reference internal" href="#windcraft.Farm" title="windcraft.Farm"><code class="xref py py-class docutils literal notranslate"><span class="pre">Farm</span></code></a>) – wind farm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.Player.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">farm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">turbines</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/player.html#Player.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Player.update" title="Link to this definition"></a></dt>
+<dd><p>Update the player position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>farm</strong> (<a class="reference internal" href="#windcraft.Farm" title="windcraft.Farm"><code class="xref py py-class docutils literal notranslate"><span class="pre">Farm</span></code></a>) – wind farm</p></li>
+<li><p><strong>turbines</strong> (<em>list</em>) – turbines in farm</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="windcraft.Solver">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">windcraft.</span></span><span class="sig-name descname"><span class="pre">Solver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">farm_width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">farm_height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npoints</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Solver" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This represents the solver.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.Solver.advectdiffuse">
+<span class="sig-name descname"><span class="pre">advectdiffuse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.advectdiffuse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Solver.advectdiffuse" title="Link to this definition"></a></dt>
+<dd><p>Calculate advective term of NS with upwinding.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.Solver.apply_pres_bc">
+<span class="sig-name descname"><span class="pre">apply_pres_bc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.apply_pres_bc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Solver.apply_pres_bc" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.Solver.apply_velocity_bc">
+<span class="sig-name descname"><span class="pre">apply_velocity_bc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.apply_velocity_bc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Solver.apply_velocity_bc" title="Link to this definition"></a></dt>
+<dd><p>Apply the boundary conditions on velocity.
+The inlet is a constant flow.
+The top, bottom are zero gradient outflow
+and outlet are zero gradient.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.Solver.computediv">
+<span class="sig-name descname"><span class="pre">computediv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.computediv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Solver.computediv" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.Solver.draw_field">
+<span class="sig-name descname"><span class="pre">draw_field</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.draw_field"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Solver.draw_field" title="Link to this definition"></a></dt>
+<dd><p>Make a raw canvas of a field for pygame.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.Solver.fillpresmat">
+<span class="sig-name descname"><span class="pre">fillpresmat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.fillpresmat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Solver.fillpresmat" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.Solver.project_velocity">
+<span class="sig-name descname"><span class="pre">project_velocity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.project_velocity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Solver.project_velocity" title="Link to this definition"></a></dt>
+<dd><p>Project the velocity field.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.Solver.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Solver.reset" title="Link to this definition"></a></dt>
+<dd><p>Reset the solver.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.Solver.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">turbines</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.solve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Solver.solve" title="Link to this definition"></a></dt>
+<dd><p>Solve the incompressible Euler equations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>steps</strong> (<em>list</em>) – number of time steps to solve</p></li>
+<li><p><strong>turbines</strong> – turbines in domain</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.Solver.solve_pressure_poisson">
+<span class="sig-name descname"><span class="pre">solve_pressure_poisson</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.solve_pressure_poisson"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Solver.solve_pressure_poisson" title="Link to this definition"></a></dt>
+<dd><p>Solve the Poisson equation for pressure.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.Solver.turbine_update">
+<span class="sig-name descname"><span class="pre">turbine_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">turbines</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/solver.html#Solver.turbine_update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Solver.turbine_update" title="Link to this definition"></a></dt>
+<dd><p>Update the turbines and flow field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>turbines</strong> (<em>list</em>) – turbines in farm</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="windcraft.Text">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">windcraft.</span></span><span class="sig-name descname"><span class="pre">Text</span></span><a class="reference internal" href="_modules/windcraft/text.html#Text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Text" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class displays the turbine text.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.Text.display">
+<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_turbines</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_turbines</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/text.html#Text.display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Text.display" title="Link to this definition"></a></dt>
+<dd><p>Display the text on the screen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>screen</strong> (<em>screen</em>) – pygame screen</p></li>
+<li><p><strong>num_turbines</strong> (<em>int</em>) – number of turbines in farm</p></li>
+<li><p><strong>max_turbines</strong> (<em>int</em>) – maximum number of turbines in farm</p></li>
+<li><p><strong>power</strong> (<em>float</em>) – power generated by the farm</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="windcraft.Turbine">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">windcraft.</span></span><span class="sig-name descname"><span class="pre">Turbine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">farm</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/turbine.html#Turbine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Turbine" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Sprite</span></code></p>
+<p>This represents the turbine.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.Turbine.place_turbine">
+<span class="sig-name descname"><span class="pre">place_turbine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">turbines</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">farm</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/turbine.html#Turbine.place_turbine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Turbine.place_turbine" title="Link to this definition"></a></dt>
+<dd><p>Place turbine in the wind farm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pos</strong> (<em>list</em>) – position to place turbine</p></li>
+<li><p><strong>turbines</strong> (<em>list</em>) – current turbines in the farm</p></li>
+<li><p><strong>farm</strong> (<a class="reference internal" href="#windcraft.Farm" title="windcraft.Farm"><code class="xref py py-class docutils literal notranslate"><span class="pre">Farm</span></code></a>) – wind farm</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.Turbine.rotate">
+<span class="sig-name descname"><span class="pre">rotate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/turbine.html#Turbine.rotate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Turbine.rotate" title="Link to this definition"></a></dt>
+<dd><p>Pick another image to rotate the turbine</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="windcraft.Turbine.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/windcraft/turbine.html#Turbine.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#windcraft.Turbine.update" title="Link to this definition"></a></dt>
+<dd><p>Use local velocity to update the turbine speed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>u</strong> (<em>float</em>) – velocity at the turbine</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="methods.html" class="btn btn-neutral float-left" title="Numerical methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="contribute.html" class="btn btn-neutral float-right" title="Contribute" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2018, Marc T. Henry de Frahan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
